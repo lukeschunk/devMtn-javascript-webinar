@@ -63,13 +63,13 @@
 		<button id="submit-button"> Click to Submit Number !</button>
 
 		<div id="box-container">
+			<div class="box" id="box0"></div>
 			<div class="box" id="box1"></div>
 			<div class="box" id="box2"></div>
-			<div class="box" id="box3"></div>
 
+			<div class="box" id="box3"></div>
 			<div class="box" id="box4"></div>
 			<div class="box" id="box5"></div>
-			<div class="box" id="box6"></div>
 		</div>
 
 	</div>
@@ -79,13 +79,7 @@
 		var button = document.getElementById('submit-button');
 		var input = document.getElementById('number-input');
 
-		//Creating variables for each of our six boxes
-		var box1 = document.getElementById('box1'),
-			box2 = document.getElementById('box2'),
-			box3 = document.getElementById('box3'),
-			box4 = document.getElementById('box4'),
-			box5 = document.getElementById('box5'),
-			box6 = document.getElementById('box6');
+
 
 		//Creating variables of colors. the # is a hex code - a way of declaring colors
 		var turquoise = "#047878",
@@ -101,11 +95,68 @@
 		// and setting it equal to whatever is in the input box
 		button.addEventListener("click", function() {
 			var submittedNumber = input.value;
-			console.log("this is number", submittedNumber);
-		})
+			var numberArray = submittedNumber.split('').map(Number);
+			console.log(numberArray);
+			checkDigits(numberArray);
+		});
+
+		function checkDigits(inputArray) {
+			if(inputArray.length !== 6) {
+				alert("Please Enter Exactly 6 Digits")
+			} else {
+				changeBoxColors(inputArray);
+			}
+		};
+
+		function changeBoxColors(array) {
+			console.log("that's all working", array);
+			for(var i = 0; i < array.length; i++) {
+
+				var plainBox = 'box';
+				var num = i.toString();
+				var toEdit = plainBox.concat(num);
+				console.log("this is toEdit", toEdit);
+
+					if(array[i] === 0) {
+						document.getElementById(toEdit).style.backgroundColor = red;
+					}
+					if(array[i] % 2 === 0 && array[i] !== 0) {
+						document.getElementById(toEdit).style.backgroundColor = lightBlue;
+					}
+					if(array[i] === 3 || array[i] === 7) {
+						document.getElementById(toEdit).style.backgroundColor = green;
+					}
+					if(array[i] === 5) {
+						document.getElementById(toEdit).style.backgroundColor = orange;
+					}
+					if(array[i] === 9) {
+						document.getElementById(toEdit).style.backgroundColor = getRandomColor();
+					}
+			}
+		}
+
+
+
+
+		function getRandomColor() {
+			var randomNumber = Math.random();
+			var roundedNumber = Math.round(randomNumber);
+			if(roundedNumber === 1) {
+				return turquoise;
+			} else {
+				return yellow;
+			}
+		}
+
+
+		// console.log("getRandomColor()", getRandomColor());
+
+
 
 
 	</script>
 </body>
 
 </html>
+
+<!-- var array = submittedNumber.split('').map(Number); -->
