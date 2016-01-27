@@ -87,7 +87,8 @@
 			orange = "#F57336",
 			lightBlue = "#ACF0F2",
 			red = "#C22121",
-			yellow = "#FFB733";
+			yellow = "#FFB733",
+			black = "#000000";
 
 		// This is adding an 'event listener' to the button. Basically, it listens
 		// for a click on the button. Then it runs the function. In this case in
@@ -131,6 +132,9 @@
 					}
 					if(array[i] === 9) {
 						document.getElementById(toEdit).style.backgroundColor = getRandomColor();
+					}
+					if (array[i] === 1) {
+						document.getElementById(toEdit).style.backgroundColor = black;
 					}
 			}
 		}
