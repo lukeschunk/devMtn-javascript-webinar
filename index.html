@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<title>Practical JavaScript - Logic to Manipulate the DOM</title>
 	<style>
+
 		body {
 			font-family: sans-serif;
 		}
@@ -43,39 +45,41 @@
 			display: inline-block;
 		}
 
-
-
-
 	</style>
 </head>
+
 <body>
 	<div id="container">
-	<h1> Enter a 6 digit number to change the color of the boxes </h1>
-	<ul>
-		<li> Even Digits Should turn a box</li>
-		<li> A Zero should turn the box </li>
-		<li> A three or a 7 should turn the box </li>
-		<li> A five or a nine should turn the box </li>
-	</ul>
-	<input id="number-input" type="text" placeholder="Enter Number Here...">
-	<button id="submit-button"> Click to Submit Number !</button>
+		<h1> Enter a 6 digit number to change the color of the boxes </h1>
+		<ul>
+			<li> Even Digits Should turn a box light blue. </li>
+			<li> A Zero should turn the box red </li>
+			<li> A three or a 7 should turn the box green </li>
+			<li> A five should turn the box orange </li>
+			<li>A nine should turn the box either yellow or turquoise (randomly).</li>
+		</ul>
 
-	<div id="box-container">
-		<div class="box" id="box1"></div>
-		<div class="box" id="box2"></div>
-		<div class="box" id="box2"></div>
+		<input id="number-input" type="text" placeholder="Enter Number Here...">
+		<button id="submit-button"> Click to Submit Number !</button>
 
-		<div class="box" id="box4"></div>
-		<div class="box" id="box5"></div>
-		<div class="box" id="box6"></div>
-	</div>
+		<div id="box-container">
+			<div class="box" id="box1"></div>
+			<div class="box" id="box2"></div>
+			<div class="box" id="box3"></div>
+
+			<div class="box" id="box4"></div>
+			<div class="box" id="box5"></div>
+			<div class="box" id="box6"></div>
+		</div>
 
 	</div>
 
 	<script>
+		//creating a variable for the button and input box
 		var button = document.getElementById('submit-button');
 		var input = document.getElementById('number-input');
 
+		//Creating variables for each of our six boxes
 		var box1 = document.getElementById('box1'),
 			box2 = document.getElementById('box2'),
 			box3 = document.getElementById('box3'),
@@ -83,24 +87,25 @@
 			box5 = document.getElementById('box5'),
 			box6 = document.getElementById('box6');
 
+		//Creating variables of colors. the # is a hex code - a way of declaring colors
+		var turquoise = "#047878",
+			green = "#08B90B",
+			orange = "#F57336",
+			lightBlue = "#ACF0F2",
+			red = "#C22121",
+			yellow = "#FFB733";
 
+		// This is adding an 'event listener' to the button. Basically, it listens
+		// for a click on the button. Then it runs the function. In this case in
+		// the function we are creating a variable called submittedNumber
+		// and setting it equal to whatever is in the input box
 		button.addEventListener("click", function() {
-			var number = input.value;
-			console.log("this is number", number);
-
-			changeColor();
+			var submittedNumber = input.value;
+			console.log("this is number", submittedNumber);
 		})
-
-		function changeColor() {
-			var test = document.getElementById("box1");
-			test.style.backgroundColor = 'blue';
-		}
-
-
-
-
 
 
 	</script>
 </body>
+
 </html>
