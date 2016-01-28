@@ -110,32 +110,27 @@
 		};
 
 		function changeBoxColors(array) {
-			console.log("that's all working", array);
+
 			for(var i = 0; i < array.length; i++) {
-
-				var plainBox = 'box';
-				var num = i.toString();
-				var toEdit = plainBox.concat(num);
-				console.log("this is toEdit", toEdit);
-
-					if(array[i] === 0) {
-						document.getElementById(toEdit).style.backgroundColor = red;
-					}
-					if(array[i] % 2 === 0 && array[i] !== 0) {
-						document.getElementById(toEdit).style.backgroundColor = lightBlue;
-					}
-					if(array[i] === 3 || array[i] === 7) {
-						document.getElementById(toEdit).style.backgroundColor = green;
-					}
-					if(array[i] === 5) {
-						document.getElementById(toEdit).style.backgroundColor = orange;
-					}
-					if(array[i] === 9) {
-						document.getElementById(toEdit).style.backgroundColor = getRandomColor();
-					}
-					if (array[i] === 1) {
-						document.getElementById(toEdit).style.backgroundColor = black;
-					}
+				if(array[i] === 0) {
+					console.log("this is this", this);
+					this['box' + i].style.backgroundColor = red;
+				}
+				if(array[i] % 2 === 0 && array[i] !== 0) {
+					this['box' + i].style.backgroundColor = lightBlue;
+				}
+				if(array[i] === 3 || array[i] === 7) {
+					this['box' + i].style.backgroundColor = green;
+				}
+				if(array[i] === 5) {
+					this['box' + i].style.backgroundColor = orange;
+				}
+				if(array[i] === 9) {
+					this['box' + i].style.backgroundColor = getRandomColor();
+				}
+				if (array[i] === 1) {
+					this['box' + i].style.backgroundColor = black;
+				}
 			}
 		}
 
